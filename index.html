@@ -54,7 +54,7 @@
         function onCaptchaSuccess(token) {
             const n = document.querySelector('#n');
             n.textContent = String(parseInt(n.textContent)+1);
-            hcaptcha.reset();
+            setTimeout(() => hcaptcha.reset(), 2000);
         }
     </script>
 </body>
