@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLVE THE CAPTCHA</title>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        .captcha-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 6em;
+            margin-bottom: 1rem;
+        }
+
+        .h-captcha h1 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>SOLVE THE CAPTCHA</h2>
+    <h3 class="demand">DO IT RIGHT NOW.</h3>
+    <h3 class="counter">YOU'VE CURRENTLY SOLVED ONLY <span id="n">0</span> CAPTCHAS</h3>
+    <div class="captcha-container">
+        <h1>Please verify you're human</h1>
+        <div class="h-captcha"
+             data-sitekey="10000000-ffff-ffff-ffff-000000000001"
+             data-callback="onCaptchaSuccess">
+        </div>
+    </div>
+
+    <script>
+        function onCaptchaSuccess(token) {
+            const n = document.querySelector('#n');
+            n.textContent = String(parseInt(n.textContent)+1);
+            hcaptcha.reset();
+        }
+    </script>
+</body>
+</html>
